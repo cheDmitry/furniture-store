@@ -1,0 +1,419 @@
+@import '_var.scss';
+@import '_common.scss';
+@import '_mixin.scss';
+
+
+//Headedr
+.header-product {
+  .header__catalog-bottom {
+    padding-top: 19px;
+  }
+}
+
+//Описание продукта
+.product-main .product {
+  margin-bottom: 79px;
+
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 28px 30px;
+    grid-template-areas: 
+    "photos photos photos photos photos photos title title title title title title"
+    "mechanism mechanism mechanism mechanism mechanism mechanism specifications specifications specifications specifications specifications specifications";
+    padding-right: 38px;
+    padding-left: 28px;
+  }
+
+  &__photos {
+    grid-area: photos;
+  }
+
+  &__img {
+    width: 100%;
+    height: 245px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  &__img-top {
+    margin-bottom: 16px;
+    transition: outline 0.3s ease-in-out;
+
+    &:focus-visible {
+      outline: none;
+      outline: 1px solid $primary;
+      outline-offset: 1px;
+    }
+  }
+
+  &__img-bottom, &__vertical-img {
+    &:focus-visible {
+      outline: none;
+      outline: 1px solid $primary;
+      outline-offset: 1px;
+    }
+  }
+
+  &__title-block {
+    grid-area: title;
+    padding-top: 14px;
+  }
+
+  &__rating {
+    position: relative;
+    margin: 0;
+    margin-bottom: 2px;
+    padding-left: 22px;
+    color: $secondary;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.8px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 16px;
+      height: 15px;
+      background-image: url("../img/product/rating-star.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 5px;
+    color: $black;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31.2px;
+  }
+
+  &__info {
+    margin: 0;
+    margin-bottom: 21px;
+    color: $grey;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  &__price {
+    margin: 0;
+    margin-bottom: 21px;
+    color: $black;
+    font-size: 36px;
+    line-height: 46.8px;
+  }
+
+  &__buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 230px;
+  }
+
+  .product__buttons .product__button-buy  {
+    padding: 19px 31.5px 16px 35px;
+    font-weight: 600;
+  }
+
+  &__button-add {
+    color: $primary;
+    transition: outline 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover {
+      color: $primary_light;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $primary;
+    }
+
+    &:active {
+      outline: none;
+      color: $primary_shade;
+    }
+  }
+
+
+  &__mechanism {
+    flex-direction: column;
+    grid-area: mechanism;
+
+    &-title {
+      margin: 0;
+      margin-bottom: 8px;
+      color: $black;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    &-desc {
+      margin-bottom: 10px;
+    }
+
+    &-paragraph {
+      margin: 0;
+      color: $black;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 25.2px;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-picture {
+      margin-top: auto;
+    }
+
+    &-img {
+      width: 84%;
+      object-fit: cover;
+    }
+  }
+
+  &__specifications {
+    grid-area: specifications;
+  }
+
+  &__characteristic {
+    justify-content: space-between;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 6.8px;
+      left: 0;
+      width: 54%;
+      height: 1px;
+      background-image: url("../img/product/dotted.svg");
+      background-position: bottom;
+      background-repeat: repeat-x;
+      color: $grey;
+      font-size: 14px;
+      line-height: 1px;
+    }
+  }
+
+  &__parameter {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25.2px;
+
+    &-item {
+      position: relative;
+      background-color: $white;
+      color: $grey;
+      z-index: 3;
+      
+    }
+
+    &-value {
+      position: relative;
+      width: 48%;
+      background-color: $white;
+      z-index: 3;
+    }
+  }
+
+  //Свайпер продукта
+  & &__swiper {
+    padding-right: 50px;
+    background-color: $grey_light;
+  }
+
+  .swiper-slide {
+    display: inline-block;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .swiper-wrapper {
+    padding: 7px 25px 10px 25px;
+  }
+
+  &__img-bottom {
+    height: 61px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+
+//Похожие товары
+.similar {
+  .similar &-container {
+    padding-right: 42px;
+    padding-left: 31px;
+  }
+
+  .similar &__title {
+    font-size: 24px;
+  }
+
+  .swiper-top &__title {
+    margin-bottom: 0;
+  }
+
+  .swiper-top {
+    justify-content: space-between;
+    padding-bottom: 23px;
+  }
+
+  .swiper-buttons {
+    gap: 13px;
+  }
+
+  .swiper-button-prev.swiper-button-disabled, .swiper-button-next.swiper-button-disabled {
+    opacity: 1;
+
+    & path, & circle {
+      stroke: $grey;
+    }
+  }
+
+
+  .swiper-button-prev, .swiper-button-next {
+    position: static;
+    top: 0; 
+    height: 100%; 
+    width: 32px;
+    margin-top: 0;
+
+    & path, & circle {
+      transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
+    }
+
+    &:focus-visible {
+      outline: 0;
+    }
+    
+    &:hover path{
+      stroke: $white;
+    }
+
+    &:hover circle{
+      fill: $primary;
+    }
+
+    &:focus-visible path{
+      stroke: $white;
+    }
+
+    &:focus-visible circle{
+      fill: $primary_light;
+    }
+
+    &:active path{
+      stroke: $white;
+    }
+
+    &:active circle{
+      stroke: $primary_shade;
+      fill: $primary_shade;
+    }
+  }
+
+  .swiper-button-prev::after, .swiper-button-next::after {
+    display: none;
+  }
+
+  .swiper-buttons-sm {
+    display: none;
+  }
+
+  &__card {
+    position: relative;
+    border-radius: 10px;
+    background-color: $grey_light;
+
+    &-top {
+      width: 100%;
+      height: 184px;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 16px;
+      padding: 0 15px 0 15px;
+    }
+
+    &-img {
+      max-height: 139px;
+      object-fit: cover;
+      transform: translateY(9px);
+    }
+
+    &-bottom {
+      height: 220px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 7px 30px 28px 30px;
+    }
+
+    &-title {
+      margin: 0;
+      margin-bottom: auto;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 31.2px;
+    }
+
+    &-price {
+      margin: 0;
+      margin-top: auto;
+      margin-bottom: 24px;
+      color: $grey_shade;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+    }
+
+    &-rating {
+      position: absolute;
+      top: 32px;
+      left: 29px;
+      padding-left: 22.5px;
+      color: $secondary;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        background-image: url("../img/catalog/catalog-raiting-star.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}
+
+//Foter
+.footer-product {
+  .footer__list-social {
+    transform: translate(0, 5px);
+  }
+
+  .footer__block-list-about {
+    margin-right: 11.6%;
+  }
+
+  .footer__block-list-services {
+    margin-right: 15%;
+  }
+}
+
